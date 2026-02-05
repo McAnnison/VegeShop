@@ -60,7 +60,7 @@ export default function Home() {
             </div>
             <div className="flex items-center gap-3 text-xs text-emerald-900/60">
               <span>Shopping cart</span>
-              <span className="rounded-full bg-emerald-100 px-3 py-1 text-emerald-800">
+              <span className="cart-pulse rounded-full bg-emerald-100 px-3 py-1 text-emerald-800">
                 2 items
               </span>
             </div>
