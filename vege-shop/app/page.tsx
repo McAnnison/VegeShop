@@ -1,313 +1,230 @@
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-
-const features = [
-  {
-    title: "Predictive buying",
-    description:
-      "Seasonality signals and sell-through forecasts keep your inventory lean without risking stockouts.",
-  },
-  {
-    title: "Grower-direct lanes",
-    description:
-      "Lock in weekly volume with traceable growers and transparent pricing across regions.",
-  },
-  {
-    title: "Quality snapshots",
-    description:
-      "Inspect lots remotely with harvest notes, temperature logs, and arrival photos.",
-  },
-  {
-    title: "Mixed-load routing",
-    description:
-      "Consolidate deliveries and shave miles with dynamic route building and live ETAs.",
-  },
-  {
-    title: "Waste recovery",
-    description:
-      "Divert near-date inventory into institutional buyers in a single tap.",
-  },
-  {
-    title: "Instant settlement",
-    description:
-      "Automate payouts to growers within 24 hours using invoice-level funding.",
-  },
-];
-
-const highlights = [
-  {
-    label: "Forecast accuracy",
-    value: "92%",
-    note: "Across 40+ SKUs",
-  },
-  {
-    label: "Avg. delivery time",
-    value: "4.6h",
-    note: "Metro-only lanes",
-  },
-  {
-    label: "Shrink reduction",
-    value: "-31%",
-    note: "Last 90 days",
-  },
-];
-
-const steps = [
-  {
-    title: "Signal demand",
-    description:
-      "Sync POS data and upcoming promotions so the model flags shortages before they hit.",
-  },
-  {
-    title: "Reserve lots",
-    description:
-      "Book harvest windows in one click and lock in transparent pricing by region.",
-  },
-  {
-    title: "Deliver in hours",
-    description:
-      "Mix loads across carriers and track cold-chain integrity to the dock door.",
-  },
-];
+import { Card, CardContent } from "@/components/ui/card";
+import shopData from "@/data/shop-data.json";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[radial-gradient(1200px_circle_at_10%_-10%,rgba(16,185,129,0.18),transparent_60%),radial-gradient(900px_circle_at_95%_10%,rgba(56,189,248,0.16),transparent_55%)] text-foreground">
-      <div className="mx-auto max-w-6xl px-6 pb-24 pt-8">
-        <header className="flex items-center justify-between">
+    <div className="min-h-screen bg-[#f8f7f2] text-slate-900">
+      <div className="border-b border-emerald-900/10 bg-[#f1f0e9] text-xs text-slate-600">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-2">
+          <div className="flex items-center gap-4">
+            <span>+1 (213) 456-7890</span>
+            <span>support@vegeshop.co</span>
+          </div>
           <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-foreground text-background">
-              <span className="text-lg font-[var(--font-display)]">V</span>
-            </div>
-            <div className="leading-tight">
-              <p className="text-base font-semibold tracking-tight">VegeShop</p>
-              <p className="text-xs text-muted-foreground">
-                Fresh supply, smarter buys
-              </p>
-            </div>
-          </div>
-          <nav className="hidden items-center gap-6 text-sm text-muted-foreground md:flex">
-            <Link className="transition hover:text-foreground" href="#how">
-              How it works
-            </Link>
-            <Link className="transition hover:text-foreground" href="#features">
-              Features
-            </Link>
-            <Link className="transition hover:text-foreground" href="#insights">
-              Insights
-            </Link>
-          </nav>
-          <div className="hidden items-center gap-3 md:flex">
-            <Button variant="ghost">Log in</Button>
-            <Button>Get a demo</Button>
-          </div>
-          <Button className="md:hidden" variant="outline">
-            Menu
-          </Button>
-        </header>
-
-        <main className="mt-16 grid gap-12 lg:grid-cols-[1.15fr_0.85fr]">
-          <section className="flex flex-col gap-8">
-            <Badge className="w-fit bg-emerald-500/10 text-emerald-700">
-              Demand-aware buying is live
+            <span>USD</span>
+            <span>English</span>
+            <Badge variant="secondary" className="rounded-full">
+              50% off
             </Badge>
-            <div className="flex flex-col gap-6">
-              <h1 className="text-4xl font-[var(--font-display)] leading-tight tracking-tight text-foreground sm:text-5xl">
-                Fresh produce, orchestrated from soil to shelf.
-              </h1>
-              <p className="text-lg text-muted-foreground sm:text-xl">
-                VegeShop connects growers, buyers, and carriers into a single
-                supply cockpit. Forecast demand, reserve lots, and deliver
-                greens in hours, not days.
-              </p>
+          </div>
+        </div>
+      </div>
+
+      <header className="bg-[#f8f7f2]">
+        <div className="mx-auto flex max-w-6xl flex-col gap-4 px-6 py-6">
+          <div className="flex flex-wrap items-center justify-between gap-4">
+            <div className="flex items-center gap-3">
+              <div className="flex h-11 w-11 items-center justify-center rounded-full bg-emerald-900 text-white">
+                <span className="text-lg font-[var(--font-display)]">V</span>
+              </div>
+              <div>
+                <p className="text-lg font-semibold tracking-tight">VegeShop</p>
+                <p className="text-xs text-emerald-900/60">Organic market</p>
+              </div>
             </div>
-            <div className="flex flex-col gap-3 sm:flex-row">
-              <Button className="h-12 px-6 text-base">Start a pilot</Button>
-              <Button variant="outline" className="h-12 px-6 text-base">
-                View catalog
+            <div className="flex w-full max-w-xl items-center gap-2 rounded-full border border-emerald-900/10 bg-white px-4 py-2 sm:w-auto sm:flex-1">
+              <input
+                className="w-full bg-transparent text-sm outline-none"
+                placeholder="Type here..."
+              />
+              <Button className="h-9 rounded-full bg-emerald-700 px-5 text-xs uppercase tracking-wide hover:bg-emerald-800">
+                Search
               </Button>
             </div>
-            <div className="flex flex-wrap gap-6 text-sm text-muted-foreground">
-              <span>30+ regional growers</span>
-              <span>Next-morning settlement</span>
-              <span>Cold-chain verified</span>
+            <div className="flex items-center gap-4 text-sm text-slate-700">
+              <span>Wishlist</span>
+              <span>Register / Login</span>
             </div>
-          </section>
+          </div>
 
-          <section className="flex flex-col gap-6">
-            <Card className="border border-border/60 bg-background/80 shadow-xl backdrop-blur">
-              <CardHeader className="flex flex-row items-start justify-between">
+          <nav className="flex flex-wrap items-center justify-between gap-4 text-sm font-medium text-slate-700">
+            <div className="flex flex-wrap gap-5">
+              {shopData.navLinks.map((item) => (
+                <Link key={item} href="#" className="hover:text-emerald-700">
+                  {item}
+                </Link>
+              ))}
+            </div>
+            <div className="flex items-center gap-3 text-xs text-emerald-900/60">
+              <span>Shopping cart</span>
+              <span className="rounded-full bg-emerald-100 px-3 py-1 text-emerald-800">
+                2 items
+              </span>
+            </div>
+          </nav>
+        </div>
+      </header>
+
+      <section className="bg-[#2e3d2e]">
+        <div className="mx-auto max-w-6xl px-6 py-16 text-white">
+          <div className="relative overflow-hidden rounded-3xl bg-[linear-gradient(120deg,rgba(16,40,24,0.85),rgba(16,40,24,0.55)),radial-gradient(600px_circle_at_80%_20%,rgba(16,185,129,0.35),transparent_65%)] px-10 py-14">
+            <div className="absolute inset-0 opacity-30">
+              <div className="h-full w-full bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.12),transparent_45%),radial-gradient(circle_at_80%_70%,rgba(255,255,255,0.08),transparent_50%)]" />
+            </div>
+            <div className="relative">
+              <p className="text-xs uppercase tracking-[0.3em] text-emerald-100/70">
+                Shop
+              </p>
+              <h1 className="mt-4 text-4xl font-[var(--font-display)]">
+                Shop
+              </h1>
+              <p className="mt-2 text-sm text-emerald-100/80">Home / Shop</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-6 py-16">
+        <div className="text-center">
+          <p className="text-xs uppercase tracking-[0.3em] text-emerald-700/70">
+            When health is organic
+          </p>
+          <h2 className="mt-3 text-2xl font-[var(--font-display)] text-emerald-900">
+            Shop Our Organic Products
+          </h2>
+        </div>
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-6">
+          {shopData.categories.map((category) => (
+            <div key={category.name} className="flex flex-col items-center gap-4">
+              <div
+                className={`h-24 w-24 rounded-full bg-gradient-to-br ${category.accent} shadow-inner`}
+              />
+              <span className="text-sm font-medium text-slate-700">
+                {category.name}
+              </span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-6 pb-16">
+        <div className="flex flex-wrap items-center justify-between gap-4 text-sm text-slate-600">
+          <span>Showing 1-12 of 85 items</span>
+          <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2">
+              <Button variant="outline" className="h-9 w-9 px-0">
+                1
+              </Button>
+              <Button variant="outline" className="h-9 w-9 px-0">
+                2
+              </Button>
+              <Button variant="outline" className="h-9 w-9 px-0">
+                3
+              </Button>
+            </div>
+            <Button variant="outline" className="h-9">
+              Default sorting
+            </Button>
+          </div>
+        </div>
+
+        <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {shopData.products.map((product) => (
+            <Card
+              key={product.name}
+              className="border border-emerald-900/10 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
+            >
+              <CardContent className="flex flex-col gap-4 p-5">
+                <div className="flex items-center justify-between text-xs text-emerald-900/60">
+                  <span>{product.unit}</span>
+                  <Badge variant="secondary" className="rounded-full">
+                    {product.badge}
+                  </Badge>
+                </div>
+                <div
+                  className={`h-32 w-full rounded-2xl bg-gradient-to-br ${product.accent}`}
+                />
                 <div>
-                  <CardTitle className="text-base font-semibold">
-                    Availability board
-                  </CardTitle>
-                  <p className="text-sm text-muted-foreground">
-                    Updated 8 min ago
+                  <p className="text-xs uppercase tracking-wide text-emerald-900/50">
+                    {product.category}
+                  </p>
+                  <p className="mt-1 text-sm font-semibold text-slate-900">
+                    {product.name}
                   </p>
                 </div>
-                <Badge variant="secondary">Live</Badge>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="flex items-center justify-between rounded-2xl border border-border/60 bg-background px-4 py-3">
-                  <div>
-                    <p className="text-sm font-medium">Organic Romaine</p>
-                    <p className="text-xs text-muted-foreground">
-                      Salinas Valley • 24 pallets
-                    </p>
-                  </div>
-                  <Badge className="bg-emerald-500/15 text-emerald-700">
-                    $18.40
-                  </Badge>
-                </div>
-                <div className="flex items-center justify-between rounded-2xl border border-border/60 bg-background px-4 py-3">
-                  <div>
-                    <p className="text-sm font-medium">Heirloom Tomatoes</p>
-                    <p className="text-xs text-muted-foreground">
-                      Baja Norte • 12 pallets
-                    </p>
-                  </div>
-                  <Badge className="bg-amber-500/15 text-amber-700">
-                    $22.10
-                  </Badge>
-                </div>
-                <div className="flex items-center justify-between rounded-2xl border border-border/60 bg-background px-4 py-3">
-                  <div>
-                    <p className="text-sm font-medium">Baby Spinach</p>
-                    <p className="text-xs text-muted-foreground">
-                      Willamette • 16 pallets
-                    </p>
-                  </div>
-                  <Badge className="bg-sky-500/15 text-sky-700">$15.70</Badge>
+                <div className="flex items-center justify-between">
+                  <span className="text-sm font-semibold text-emerald-700">
+                    {product.price}
+                  </span>
+                  <Button variant="outline" className="h-9 px-4 text-xs">
+                    Select
+                  </Button>
                 </div>
               </CardContent>
             </Card>
+          ))}
+        </div>
 
-            <div className="grid gap-4 sm:grid-cols-3">
-              {highlights.map((item) => (
-                <Card key={item.label} className="border-border/60">
-                  <CardHeader className="pb-2">
-                    <p className="text-xs uppercase tracking-wide text-muted-foreground">
-                      {item.label}
-                    </p>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-2xl font-semibold">{item.value}</p>
-                    <p className="text-xs text-muted-foreground">{item.note}</p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </section>
-        </main>
+        <div className="mt-10 flex items-center justify-center gap-3 text-sm text-slate-600">
+          <Button variant="ghost" className="h-9 w-9 px-0">
+            1
+          </Button>
+          <Button variant="ghost" className="h-9 w-9 px-0">
+            2
+          </Button>
+          <Button variant="ghost" className="h-9 w-9 px-0">
+            3
+          </Button>
+          <span className="px-2">...</span>
+          <Button variant="ghost" className="h-9 w-9 px-0">
+            25
+          </Button>
+        </div>
+      </section>
 
-        <section id="how" className="mt-24">
-          <div className="flex flex-col gap-3">
-            <p className="text-sm font-semibold text-emerald-700">
-              How it works
-            </p>
-            <h2 className="text-3xl font-[var(--font-display)]">
-              A closed loop for fresh supply.
-            </h2>
-          </div>
-          <div className="mt-8 grid gap-6 md:grid-cols-3">
-            {steps.map((step, index) => (
-              <Card key={step.title} className="border-border/60">
-                <CardHeader>
-                  <p className="text-xs uppercase tracking-wide text-muted-foreground">
-                    Step 0{index + 1}
-                  </p>
-                  <CardTitle className="text-lg">{step.title}</CardTitle>
-                </CardHeader>
-                <CardContent className="text-sm text-muted-foreground">
-                  {step.description}
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </section>
-
-        <section id="features" className="mt-24">
-          <div className="flex items-center justify-between">
-            <div>
-              <p className="text-sm font-semibold text-emerald-700">
-                Built for buyers and growers
+      <footer className="bg-[#1f2f22] text-[#d3e4d2]">
+        <div className="mx-auto max-w-6xl px-6 py-14">
+          <div className="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr_1fr_1fr]">
+            <div className="space-y-4">
+              <div className="flex items-center gap-3">
+                <div className="flex h-11 w-11 items-center justify-center rounded-full bg-emerald-200 text-emerald-900">
+                  <span className="text-lg font-[var(--font-display)]">V</span>
+                </div>
+                <div>
+                  <p className="text-lg font-semibold">VegeShop</p>
+                  <p className="text-xs text-emerald-200/70">Organic market</p>
+                </div>
+              </div>
+              <p className="text-sm text-emerald-100/70">
+                We connect organic growers and buyers with seasonal produce and
+                transparent supply.
               </p>
-              <h2 className="mt-2 text-3xl font-[var(--font-display)]">
-                Every step, tightly connected.
-              </h2>
             </div>
-            <Button variant="outline" className="hidden sm:inline-flex">
-              Download spec
-            </Button>
-          </div>
-          <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {features.map((feature, index) => (
-              <Card key={feature.title} className="border-border/60">
-                <CardHeader>
-                  <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-emerald-500/10 text-emerald-700">
-                    <span className="text-sm font-semibold">0{index + 1}</span>
-                  </div>
-                  <CardTitle className="text-lg">{feature.title}</CardTitle>
-                </CardHeader>
-                <CardContent className="text-sm text-muted-foreground">
-                  {feature.description}
-                </CardContent>
-              </Card>
+            {shopData.footerLinks.map((column) => (
+              <div key={column.title} className="space-y-3">
+                <p className="text-sm font-semibold text-white">
+                  {column.title}
+                </p>
+                <div className="space-y-2 text-xs text-emerald-100/70">
+                  {column.links.map((item) => (
+                    <p key={item}>{item}</p>
+                  ))}
+                </div>
+              </div>
             ))}
           </div>
-        </section>
-
-        <section id="insights" className="mt-24">
-          <Card className="border-border/60 bg-foreground text-background">
-            <CardContent className="grid gap-8 px-8 py-10 md:grid-cols-[1.4fr_0.6fr]">
-              <div>
-                <p className="text-sm uppercase tracking-[0.2em] text-background/70">
-                  Weekly growth briefing
-                </p>
-                <h3 className="mt-3 text-3xl font-[var(--font-display)]">
-                  See the crop outlook before the market does.
-                </h3>
-                <p className="mt-4 text-sm text-background/70">
-                  Get early signals on weather shifts, harvest windows, and
-                  demand spikes. Share tailored dashboards with every buying
-                  team.
-                </p>
-              </div>
-              <div className="flex flex-col gap-3">
-                <Button variant="secondary" className="w-full">
-                  Request a briefing
-                </Button>
-                <Button
-                  variant="outline"
-                  className="w-full border-background/20 text-background hover:bg-background/10"
-                >
-                  See sample report
-                </Button>
-                <p className="text-xs text-background/60">
-                  No spam. One insight-packed email per week.
-                </p>
-              </div>
-            </CardContent>
-          </Card>
-        </section>
-
-        <footer className="mt-20 flex flex-col items-center justify-between gap-4 border-t border-border/60 pt-8 text-xs text-muted-foreground sm:flex-row">
-          <p>VegeShop Supply Network © 2026</p>
-          <div className="flex items-center gap-6">
-            <Link className="transition hover:text-foreground" href="#">
-              Privacy
-            </Link>
-            <Link className="transition hover:text-foreground" href="#">
-              Terms
-            </Link>
-            <Link className="transition hover:text-foreground" href="#">
-              Contact
-            </Link>
+          <div className="mt-10 flex flex-wrap items-center justify-between gap-4 border-t border-emerald-100/10 pt-6 text-xs text-emerald-100/60">
+            <p>© 2026 VegeShop. All rights reserved.</p>
+            <div className="flex items-center gap-4">
+              <span>Terms & Conditions</span>
+              <span>Privacy Policy</span>
+            </div>
           </div>
-        </footer>
-      </div>
+        </div>
+      </footer>
     </div>
   );
 }

@@ -1,0 +1,131 @@
+{
+  "navLinks": ["Home", "Shop", "About", "Pages", "Blog", "Contact"],
+  "categories": [
+    { "name": "Vegetables", "accent": "from-emerald-200 to-emerald-400" },
+    { "name": "Fruits", "accent": "from-amber-200 to-amber-400" },
+    { "name": "Fresh Nuts", "accent": "from-orange-200 to-orange-400" },
+    { "name": "Juices", "accent": "from-rose-200 to-rose-400" },
+    { "name": "Eggs", "accent": "from-lime-200 to-lime-400" },
+    { "name": "Healthy", "accent": "from-sky-200 to-sky-400" }
+  ],
+  "products": [
+    {
+      "name": "Fresh Organic Tomato",
+      "category": "Vegetables",
+      "price": "$18.40",
+      "unit": "1kg",
+      "accent": "from-red-200 to-red-400",
+      "badge": "New"
+    },
+    {
+      "name": "Fresh Organic Capsicum",
+      "category": "Vegetables",
+      "price": "$16.70",
+      "unit": "1kg",
+      "accent": "from-amber-200 to-amber-400",
+      "badge": "New"
+    },
+    {
+      "name": "Fresh Organic Broccoli",
+      "category": "Vegetables",
+      "price": "$14.90",
+      "unit": "1kg",
+      "accent": "from-emerald-200 to-emerald-400",
+      "badge": "New"
+    },
+    {
+      "name": "Fresh Organic Beans",
+      "category": "Vegetables",
+      "price": "$13.10",
+      "unit": "1kg",
+      "accent": "from-lime-200 to-lime-400",
+      "badge": "New"
+    },
+    {
+      "name": "Fresh Organic Onion",
+      "category": "Vegetables",
+      "price": "$12.40",
+      "unit": "1kg",
+      "accent": "from-pink-200 to-pink-400",
+      "badge": "New"
+    },
+    {
+      "name": "Fresh Organic Carrot",
+      "category": "Vegetables",
+      "price": "$11.30",
+      "unit": "1kg",
+      "accent": "from-orange-200 to-orange-400",
+      "badge": "New"
+    },
+    {
+      "name": "Fresh Organic Cabbage",
+      "category": "Vegetables",
+      "price": "$9.80",
+      "unit": "1kg",
+      "accent": "from-emerald-200 to-emerald-400",
+      "badge": "New"
+    },
+    {
+      "name": "Fresh Organic Sweetpotato",
+      "category": "Vegetables",
+      "price": "$15.20",
+      "unit": "1kg",
+      "accent": "from-rose-200 to-rose-400",
+      "badge": "New"
+    },
+    {
+      "name": "Fresh Organic Pumpkin",
+      "category": "Vegetables",
+      "price": "$13.90",
+      "unit": "1kg",
+      "accent": "from-amber-200 to-amber-400",
+      "badge": "New"
+    },
+    {
+      "name": "Fresh Organic Corn",
+      "category": "Vegetables",
+      "price": "$10.60",
+      "unit": "1kg",
+      "accent": "from-yellow-200 to-yellow-400",
+      "badge": "New"
+    },
+    {
+      "name": "Fresh Organic Radish",
+      "category": "Vegetables",
+      "price": "$9.40",
+      "unit": "1kg",
+      "accent": "from-rose-200 to-rose-400",
+      "badge": "New"
+    },
+    {
+      "name": "Fresh Organic Cucumber",
+      "category": "Vegetables",
+      "price": "$11.10",
+      "unit": "1kg",
+      "accent": "from-green-200 to-green-400",
+      "badge": "New"
+    }
+  ],
+  "footerLinks": [
+    {
+      "title": "Useful Pages",
+      "links": ["About Us", "Contact", "Help Center", "Careers", "Policy"]
+    },
+    {
+      "title": "Help Center",
+      "links": ["Payments", "Shipping", "Product Returns", "FAQ", "Checkout"]
+    },
+    {
+      "title": "Contacts",
+      "links": [
+        "756 W Street Name, New York",
+        "(213) 456-7890",
+        "hello@vegeshop.co"
+      ]
+    },
+    {
+      "title": "Store Information",
+      "links": ["Store Info", "Best Sellers", "Sale Items", "New Products"]
+    }
+  ]
+}
